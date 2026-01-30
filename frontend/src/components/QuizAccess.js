@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { MdQuiz } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
+import { FaChartLine } from "react-icons/fa6";
 
 export default function QuizAccess({ setOpen, includeHome = false }) {
   const location = useLocation();
@@ -11,6 +12,11 @@ export default function QuizAccess({ setOpen, includeHome = false }) {
           onClick={() => setOpen(false)}>
           QUIZ
           <MdQuiz size={20} />
+      </NavLink>
+      <NavLink to={`/charts${search}`} className={({ isActive }) => `nav-tab${isActive ? " active" : ""}`}
+             onClick={() => setOpen(false)}>
+        CHARTS
+        <FaChartLine size={20} />
       </NavLink>
       { includeHome && (
         <NavLink to="/" className="nav-tab"
